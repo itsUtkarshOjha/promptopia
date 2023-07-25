@@ -21,7 +21,10 @@ function UserProfile({ params }) {
     },
     [params?.id]
   );
-  console.log(posts);
+  if (params?.id === session?.user.id) {
+    router.push("/profile");
+    return null;
+  }
   return (
     <Profile
       name={posts[0].creator.username}
